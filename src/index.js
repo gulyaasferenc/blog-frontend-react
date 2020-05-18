@@ -4,11 +4,21 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import store from './store/reducer'
+import store from './store'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom"
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}><App /></Provider>
+    <Router>
+      <Switch>
+        <Provider store={store}><App /></Provider>
+      </Switch>
+    </Router>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,2 +1,3 @@
-export const GET_POSTS = 'GET_POSTS'
+export const GET_POSTS_STARTED = 'GET_POSTS_STARTED'
+export const POSTS_FETCHED = 'POSTS_FETCHED'
 export const DELETE_POST = 'DELETE_POST'
