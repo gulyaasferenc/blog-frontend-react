@@ -1,3 +1,5 @@
 export const GET_POSTS_STARTED = 'GET_POSTS_STARTED'
 export const POSTS_FETCHED = 'POSTS_FETCHED'
 export const DELETE_POST = 'DELETE_POST'
+export const FETCH_USER = 'FETCH_USER'
+export const FETCHED_USER = 'FETCHED_USER'

@@ -1,6 +1,7 @@
 const myState = {
   posts: [],
-  isLoading: false
+  isLoading: false,
+  user: null
 }
 
 // all state of fetching data have to be covered!!
@@ -17,7 +18,11 @@ export default (state = myState, action) => {
           isLoading: false,
           posts: action.payload
         }
-
+      case 'FETCHED_USER':
+        return {
+          ...myState,
+          user: action.payload
+        }
     default:
       return state
   }
