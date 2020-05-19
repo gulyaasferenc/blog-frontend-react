@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.scss';
+import Navbar from './components/bars/navBar'
+import Login from './components/admin/login'
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,15 +12,22 @@ import AdminPage from './views/adminPage'
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/admin">
-          <AdminPage></AdminPage>
-        </Route>
-      </Switch>
-    </Router>
+    <div>
+      <Router>
+        <Navbar></Navbar>
+        <Switch>
+          <Route path="/admin">
+            <AdminPage />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+
   )
-  
+
 }
 
 export default App;

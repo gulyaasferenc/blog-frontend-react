@@ -1,6 +1,7 @@
 import React from 'react'
-import Link from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import './bars.scss'
 
 function NavBar() {
   const user = useSelector(state => state.user)
@@ -13,14 +14,14 @@ function NavBar() {
     )
   }
   return (
-    <div>
+    <div className="navbar-main">
       <nav>
-        <ul>
+        <ul className="horizontal">
           <li>
-            <Link to="/">Home</Link>
+            <Link className="nodecoration" to="/">Home</Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link className="nodecoration" to="/login">Login</Link>
           </li>
           {admin}
         </ul>

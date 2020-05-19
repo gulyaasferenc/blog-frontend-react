@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.scss';
 import Cookie from 'js-cookie'
 import Login from '../components/admin/login'
 import Admin from '../components/admin/admin'

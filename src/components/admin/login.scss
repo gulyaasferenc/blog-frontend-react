@@ -1,0 +1,49 @@
+@import '../../App.scss';
+
+$mainwidth: 100vw * 0.3;
+
+.mainlogin {
+  display: inline-block;
+  margin: auto;
+  width: $mainwidth;
+  position: fixed;
+  left: 50%;
+  top: 25%;
+  margin-left: -($mainwidth / 2);
+  background-color: $lighter;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: $shadow;
+}
+@media (max-width: 640px) {
+  .mainlogin {
+    width: 80%;
+    left: 6%;
+    margin-left: 0px;
+  }
+}
+
+.login-title {
+  display: block;
+  background-color: $darker;
+  color: $lighter;
+  padding: 1rem;
+  border-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+input {
+  background-color: $lighter;
+  border: none;
+  border-bottom: 1px gray solid;
+  display: block;
+  margin: 2rem 0 2rem 0;
+  width: 100%;
+  transition: 1s;
+  &:focus { 
+    outline: none;
+    border-bottom: 2px $darker solid;
+  }
+}
