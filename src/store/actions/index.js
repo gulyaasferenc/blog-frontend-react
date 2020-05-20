@@ -12,10 +12,11 @@ export const getPosts = () => {
   }
 }
 
-export const login = (email) => {
+export const login = (email, password) => {
   return async (dispatch) => {
-    const user = await http.post('/login', { email })
-    dispatch({type: types.FETCHED_USER, user})
+    const user = await http.post('/login', { email, password })
+    console.log('USER', user.data)
+    dispatch({type: types.FETCHED_USER, user: user.data})
   }
 }
 
