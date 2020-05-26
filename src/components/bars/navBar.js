@@ -5,11 +5,17 @@ import './bars.scss'
 
 function NavBar() {
   const user = useSelector(state => state.user)
-  let admin = null
+  let adminOrLogin = null
   if (user && user.isAdmin) {
-    admin = (
+    adminOrLogin = (
       <li>
-        <Link to="/admin">Admin</Link>
+        <Link className="nodecoration" to="/admin">Admin</Link>
+      </li>
+    )
+  } else {
+    adminOrLogin = (
+      <li>
+        <Link className="nodecoration" to="/login">Login</Link>
       </li>
     )
   }
@@ -20,10 +26,8 @@ function NavBar() {
           <li>
             <Link className="nodecoration" to="/">Home</Link>
           </li>
-          <li>
-            <Link className="nodecoration" to="/login">Login</Link>
-          </li>
-          {admin}
+
+          {adminOrLogin}
         </ul>
       </nav>
     </div>

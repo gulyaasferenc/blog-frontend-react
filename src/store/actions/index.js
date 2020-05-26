@@ -16,7 +16,8 @@ export const login = (email, password) => {
   return async (dispatch) => {
     const user = await http.post('/login', { email, password })
     console.log('USER', user.data)
-    dispatch({type: types.FETCHED_USER, user: user.data})
+    dispatch({type: types.FETCHED_USER, payload: user.data.user})
+    document.cookie = `token=${user.data.token}; max-age=2592000`
   }
 }
 

@@ -8,7 +8,12 @@ function AdminPage() {
   console.log(token)
   let rendered = <div></div>
   if (token) {
-    rendered = <Admin></Admin>
+    rendered = (
+      <div>
+        <Admin />
+        ADMIN
+      </div>
+    )
   } else {
     rendered = (
       <div className="App">

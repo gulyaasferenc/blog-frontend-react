@@ -9,6 +9,7 @@ import {
 } from "react-router-dom"
 
 import AdminPage from './views/adminPage'
+import MainView from './views/mainView'
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/">
+            <MainView />
           </Route>
         </Switch>
       </Router>
