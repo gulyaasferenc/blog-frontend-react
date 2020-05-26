@@ -4,11 +4,12 @@ import http from '../../axios'
 export const getPostsStarted = { type: types.GET_POSTS_STARTED }
 export const deletPost = (payload) => { return { type: types.DELETE_POST, payload } }
 
-export const getPosts = () => {
+export const getPosts = (page) => {
   return async (dispatch) => {
     dispatch(getPostsStarted)
-    const posts = await http.get('/getPosts/1')
-    dispatch({ type: types.POSTS_FETCHED, payload: posts })
+    const posts = await http.get(`/getPosts/${page}`)
+    console.log(posts.data.data)
+    dispatch({ type: types.POSTS_FETCHED, payload: posts.data.data })
   }
 }
 

@@ -1,5 +1,7 @@
 import React from 'react'
-import { useSelector } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
+import '../../App.scss'
 
 function Postfeed() {
   const posts = useSelector(state => state.posts)
@@ -10,7 +12,7 @@ function Postfeed() {
         <div>
           <h3>{x.title}</h3>
           <p>{x.text.substring(0, 100)}</p>
-          <button type="button"></button>
+          <button className="button-success" type="button">Read...</button>
         </div>
       )
     })

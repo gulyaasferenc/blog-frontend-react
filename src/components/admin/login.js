@@ -20,7 +20,6 @@ function Login() {
   }
 
   const doLogin = (e) => {
-    console.log(e)
     dispatch(login(mail, password))
     e.preventDefault()
   }

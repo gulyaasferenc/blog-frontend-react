@@ -26,7 +26,6 @@ function NavBar() {
           <li>
             <Link className="nodecoration" to="/">Home</Link>
           </li>
-
           {adminOrLogin}
         </ul>
       </nav>

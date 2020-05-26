@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './App.scss';
 import Navbar from './components/bars/navBar'
 import Login from './components/admin/login'
@@ -8,10 +8,12 @@ import {
   Route
 } from "react-router-dom"
 
+
 import AdminPage from './views/adminPage'
 import MainView from './views/mainView'
 
 function App() {
+
   return (
     <div>
       <Router>
