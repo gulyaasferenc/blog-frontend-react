@@ -3,14 +3,15 @@ import './login.scss';
 import { FiLogIn } from "react-icons/fi"
 import { login } from '../../store/actions'
 import { useDispatch } from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
 
-function Login() {
+function Login(props) {
 
   const [mail, setMail] = useState(null)
   const [password, setPassword] = useState(null)
   const dispatch = useDispatch()
-
+  console.log(props)
   const changeMail = e => {
     setMail(e.target.value)
   }
@@ -22,6 +23,7 @@ function Login() {
   const doLogin = (e) => {
     dispatch(login(mail, password))
     e.preventDefault()
+    props.history.push('/')
   }
   return (
     <div >
@@ -37,4 +39,4 @@ function Login() {
   )
 }
 
-export default Login
+export default withRouter(Login)

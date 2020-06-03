@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getPosts } from '../store/actions/'
 
 import PostArea from '../components/mainParts/postArea'
+import Paginate from '../components/bars/paginate'
 
 import './mainView.scss'
 
 function MainView() {
   const dispatch = useDispatch()
-  dispatch(getPosts(0))
-  const [loading, setLoading] = useState(false)
-  const isLoading =  useSelector(state => state.loading)
-
+  const isLoading = useSelector(state => state.loading)
+  const [pageSelected, setPageSelected] = useState(0)
   useEffect(() => {
-    setLoading(isLoading)
-  },[isLoading])
+    dispatch(getPosts(pageSelected))
+    console.log(pageSelected)
+  }, [pageSelected, dispatch])
 
   let renderIt
-  if (loading) {
+  if (isLoading) {
     renderIt = <div>Posts are loading...</div>
   } else {
     renderIt = (<div className="mainarea">
@@ -28,6 +28,7 @@ function MainView() {
   return (
     <div>
       {renderIt}
+      <Paginate onSelectPage={setPageSelected} />
     </div>
   )
 }

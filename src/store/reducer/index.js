@@ -9,18 +9,18 @@ export default (state = myState, action) => {
   switch (action.type) {
     case 'GET_POSTS_STARTED':
       return {
-        ...myState,
+        ...state,
         isLoading: true
       }
       case 'POSTS_FETCHED':
         return {
-          ...myState,
+          ...state,
           isLoading: false,
           posts: action.payload
         }
       case 'FETCHED_USER':
         return {
-          ...myState,
+          ...state,
           user: action.payload
         }
     default:
