@@ -30,3 +30,11 @@ ul {
   color: white;
   margin: auto;
 }
+
+select {
+  background-color: $success;
+  min-width: 45px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: medium;
+}
