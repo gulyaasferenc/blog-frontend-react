@@ -29,7 +29,6 @@ function Paginate(props) {
 
   return (
     <div className="paginate-main">
-      <span>{currentPage}</span>
       <select value={currentPage} onChange={passCurrentPageUp}>
         {pagesToSelect.map((x, y) => {
           return (
