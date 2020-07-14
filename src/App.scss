@@ -8,7 +8,7 @@ $shadow: 0px 14px 22px 0px rgba(0,0,0,0.75);
 
 .button-base {
   padding: 7px 10px 7px 10px;
-  border: none;
+  border: 2px solid transparent;
   cursor: pointer;
   border-radius: 5px;
   background-color: $darker;
@@ -16,7 +16,7 @@ $shadow: 0px 14px 22px 0px rgba(0,0,0,0.75);
   font-size: .9rem;
   &:hover {
     opacity: .8;
-    box-shadow: $shadow;
+    border: 2px solid black;
   }
 }
 
@@ -28,4 +28,17 @@ $shadow: 0px 14px 22px 0px rgba(0,0,0,0.75);
 .button-reject {
   @extend .button-base;
   background-color: $reject;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(4, 0, 255);
+  border-radius: 10px;
 }

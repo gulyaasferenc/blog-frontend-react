@@ -1,7 +1,7 @@
 @import '../../App.scss';
 
-img {
-  margin: 10px;
+.postarea img {
+  margin: 0 10px 10px 10px;
   width: 20%;
   float: left;
 }
@@ -16,5 +16,17 @@ img {
   background-color: $darker;
   padding: 1rem;
   border-radius: 5px;
+  min-height: 50vh;
   box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.75);
+}
+
+.dateclass {
+  float: right;
+  font-size: small;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.postitem {
+  min-height: 100px;
 }

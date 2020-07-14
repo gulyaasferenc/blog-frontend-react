@@ -1,10 +1,12 @@
 import React from 'react'
 import http from '../../axios'
 import './postDetails.scss'
+import { useLocation } from 'react-router-dom'
+import query from 'query-string'
 
-
-const PostDetails = ({ postId, onCancel }) => {
-
+const PostDetails = ({ postIdIn=null, onCancel }) => {
+  const location = useLocation()
+  const postId = postIdIn ? postIdIn : query.parse(location.search).postId
   const [myPost, setMyPost] = React.useState(null)
 
   React.useEffect(() => {
@@ -25,7 +27,7 @@ const PostDetails = ({ postId, onCancel }) => {
 
   return (
     <div>
-      <button type="button" onClick={localOnCancel}>Cancel</button>
+      <button className="button-reject" type="button" onClick={localOnCancel}>Cancel</button>
       {!myPost ? <div> Post is loading... </div> :
         <div >
           <p className="centered " style={{ fontSize: 'larger' }}> <strong>{myPost.title}</strong> </p>

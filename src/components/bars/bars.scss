@@ -10,7 +10,18 @@ ul {
   margin: 1rem 1rem;
   padding: 4px 8px 4px 8px;
   border-radius: 10px;
+  cursor: pointer;
   &:hover { color: $lighter; background-color: darkcyan };
+}
+
+.toright {
+  float: right;
+  padding: 4px 8px 4px 8px;
+  margin: 0 0 20px 0;
+}
+
+.toright li {
+  display: inline-block;
 }
 
 .horizontal {
@@ -18,9 +29,11 @@ ul {
   justify-content: baseline;
 }
 
-.navbar-main {
+nav {
   background-color: $darker;
-  padding: 5px 0px 5px 0px; 
+  padding: 15px 0px 15px 0px;
+  position: sticky;
+  top: 0;
 }
 
 .paginate-main {
@@ -29,6 +42,23 @@ ul {
   text-align: center;
   color: white;
   margin: auto;
+}
+
+.filter {
+  display: inline-block;
+  width: 30vw;
+  
+  border: none;
+    &:focus {
+      border: none;
+      outline: black;
+    }
+}
+
+.filter input {
+  border-radius: 10px;
+  margin: 0 8px 0 0;
+  padding: 0 15px 0 15px;
 }
 
 select {

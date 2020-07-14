@@ -18,5 +18,7 @@
 @media (max-width: 640) {
   .mainarea {
     width: 95%;
+    min-height: 90vh;
+    max-height: 90vh;
   }
 }

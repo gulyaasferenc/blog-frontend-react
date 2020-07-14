@@ -4,10 +4,9 @@ import Login from '../components/admin/login'
 import Admin from '../components/admin/admin'
 
 function AdminPage() {
-  const token = Cookie.get('token')
-  console.log(token)
+  const isAuth = Cookie.get('isAuth')
   let rendered = <div></div>
-  if (token) {
+  if (isAuth) {
     rendered = (
       <div>
         <Admin />
