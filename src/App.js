@@ -23,7 +23,10 @@ function App() {
             <AdminPage />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login mode="login" />
+          </Route>
+          <Route path="/register">
+            <Login mode="register" />
           </Route>
           <Route path="/">
             <MainView />

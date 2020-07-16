@@ -8,6 +8,8 @@ const http = axios.create({
 http.interceptors.response.use( (response) => {
   return response
 }, (error) => {
+  console.log('error', error.response)
+  alert(error.response ? error.response.data.error : error.message)
   return Promise.reject(error)
 })
 

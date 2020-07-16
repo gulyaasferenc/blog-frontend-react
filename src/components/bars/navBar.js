@@ -10,6 +10,7 @@ import './bars.scss'
 function NavBar(props) {
   const user = useSelector(state => state.user) || JSON.parse(localStorage.getItem('user')) || null
   const [trigger, setTrigger] = React.useState(0)
+  const [showMenu, setShowMenu] = React.useState(false)
   const dispatch = useDispatch()
 
   let adminOrLoginOrLogout = React.useRef(null)
@@ -25,20 +26,20 @@ function NavBar(props) {
     }
     if (user && user.isAdmin) {
       adminOrLoginOrLogout.current = (
-        <ul className="toright">
+        <ul className="fixedmenu">
           <li>
             <Link className="nodecoration" to="/admin">Admin</Link>
           </li>
           <li>
-            <span onClick={onLogout} className="nodecoration" to="/admin">Logout</span>
+            <span onClick={onLogout} className="nodecoration">Logout</span>
           </li>
         </ul>
       )
     } else if (user && !user.isAdmin) {
       adminOrLoginOrLogout.current = (
-        <ul className="toright">
+        <ul className="fixedmenu">
           <li>
-            <span onClick={onLogout} className="nodecoration" to="/admin">Logout</span>
+            <span onClick={onLogout} className="nodecoration" >Logout</span>
           </li>
         </ul>
       )
@@ -54,14 +55,17 @@ function NavBar(props) {
       <nav>
         <Link className="nodecoration" to="/">Home</Link>
         <SearchBar />
-        <FiMenu className="toright" size="1.5em" color="white" />
-        {user ? adminOrLoginOrLogout.current :
-          <ul className="toright">
+        <FiMenu className="toright" onClick={() => {setShowMenu(!showMenu)}} size="1.5em" color="white" cursor="pointer" />
+        {showMenu ? user ? adminOrLoginOrLogout.current :
+          <ul className="fixedmenu">
             <li>
               <Link className="nodecoration" to="/login">Login</Link>
             </li>
+            <li>
+              <Link className="nodecoration" to="/register">Register</Link>
+            </li>
           </ul>
-        }
+         : null}
       </nav>
     </div>
   )

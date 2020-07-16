@@ -23,6 +23,14 @@ export const login = (email, password) => {
   }
 }
 
+export const register = (email, password, name) => {
+  return async (dispatch) => {
+    const user = await http.post('/registerUser', { email, password, name })
+    dispatch({type: types.FETCHED_USER, payload: user.data.user})
+    //document.cookie = `token=${user.data.token}; max-age=2592000`
+  }
+}
+
 
 
 // async action types goes here!!
