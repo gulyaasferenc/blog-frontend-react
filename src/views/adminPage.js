@@ -10,13 +10,12 @@ function AdminPage() {
     rendered = (
       <div>
         <Admin />
-        ADMIN
       </div>
     )
   } else {
     rendered = (
       <div className="App">
-        <Login />
+        <Login mode="login" />
       </div>
     )
   }

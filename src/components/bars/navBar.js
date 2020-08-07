@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { FiMenu } from 'react-icons/fi'
 import SearchBar from './searchBar'
+import BackDrop from '../reuse/backdrop'
 import './bars.scss'
 
 function NavBar(props) {
@@ -26,7 +27,7 @@ function NavBar(props) {
     }
     if (user && user.isAdmin) {
       adminOrLoginOrLogout.current = (
-        <ul className="fixedmenu">
+        <ul onClick={() => { setShowMenu(false) }} className="fixedmenu">
           <li>
             <Link className="nodecoration" to="/admin">Admin</Link>
           </li>
@@ -37,7 +38,7 @@ function NavBar(props) {
       )
     } else if (user && !user.isAdmin) {
       adminOrLoginOrLogout.current = (
-        <ul className="fixedmenu">
+        <ul onClick={() => { setShowMenu(false) }} className="fixedmenu">
           <li>
             <span onClick={onLogout} className="nodecoration" >Logout</span>
           </li>
@@ -52,20 +53,21 @@ function NavBar(props) {
 
   return (
     <div className="navbar-main" key={trigger}>
+      {showMenu ? <BackDrop killMe={() => {setShowMenu(false)}} /> : null}
       <nav>
         <Link className="nodecoration" to="/">Home</Link>
         <SearchBar />
-        <FiMenu className="toright" onClick={() => {setShowMenu(!showMenu)}} size="1.5em" color="white" cursor="pointer" />
+        <FiMenu className="toright" onClick={() => { setShowMenu(!showMenu) }} size="1.5em" color="white" cursor="pointer" />
         {showMenu ? user ? adminOrLoginOrLogout.current :
-          <ul className="fixedmenu">
+          <ul onClick={() => { setShowMenu(false) }} className="fixedmenu">
             <li>
               <Link className="nodecoration" to="/login">Login</Link>
             </li>
             <li>
-              <Link className="nodecoration" to="/register">Register</Link>
+              <Link className="nodecoration" to="/register">Sign Up</Link>
             </li>
           </ul>
-         : null}
+          : null}
       </nav>
     </div>
   )
